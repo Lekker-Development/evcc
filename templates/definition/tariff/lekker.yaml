@@ -1,0 +1,41 @@
+template: lekker
+products:
+  - brand: lekker
+requirements:
+  description:
+    en: "Get your API token from the lekker Service Portal."
+    de: "Hol dir deinen API-Token im lekker Service Portal: [lekker.de](https://www.lekker.de/) -> Service -> Dein EnergyAPI-Token."
+  evcc: ["skiptest"]
+group: price
+countries: ["DE"]
+
+params:
+  - name: token
+    type: string
+    required: true
+    description:
+      en: "API token (e.g. lek_prod_...)."
+      de: "API-Token (z.B. lek_prod_...)."
+  - name: interval
+    default: 1h
+    advanced: true
+
+render: |
+  type: custom
+  forecast:
+    source: http
+    uri: https://api.lekker.energy/v1/energy-prices
+    headers:
+      X-API-Key: {{ .token }}
+      Accept: application/json
+    jq: |
+      map(
+          select(.value != null)
+          | {
+            start: .start ,
+            end: .end,
+            value: (.value / 100)
+          }
+        )
+      | tostring
+  interval: {{ .interval }}
