@@ -3,7 +3,7 @@ products:
   - brand: lekker
 requirements:
   description:
-    en: "Get your API token from the lekker Service Portal."
+    en: "Get your API token from the lekker Service Portal: [lekker.de](https://www.lekker.de/) -> Service -> Your EnergyAPI Token."
     de: "Hol dir deinen API-Token im lekker Service Portal: [lekker.de](https://www.lekker.de/) -> Service -> Dein EnergyAPI-Token."
   evcc: ["skiptest"]
 group: price
