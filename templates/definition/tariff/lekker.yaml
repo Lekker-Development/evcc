@@ -1,6 +1,7 @@
 template: lekker
+link: https://www.lekker.de/
 products:
-  - brand: lekker
+  - brand: lekker Energie
 requirements:
   description:
     en: "Get your API token from the lekker Service Portal: [lekker.de](https://www.lekker.de/) -> Service -> Your EnergyAPI Token."
